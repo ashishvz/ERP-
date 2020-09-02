@@ -1,0 +1,79 @@
+﻿<Page x:Class="Demo1.SalesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:uc="clr-namespace:Demo1"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="SalesPage" Background="white">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Margin="5">
+            <TextBlock Text="Generate Invoices/Bills" FontSize="20" FontWeight="Light"/>
+            <Separator Height="5" Width="190" HorizontalAlignment="Left" Margin="5" HorizontalContentAlignment="Left"  Background="Purple"/>
+           
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Text="Barcode" FontSize="15" FontWeight="SemiBold" Foreground="DimGray" Margin="5" />
+                <TextBox x:Name="barcode_number_txtbox"  KeyDown="barcode_number_txtbox_KeyDown"  Width="150" Height="25" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"   Margin="15,0,0,0"  >
+                </TextBox>
+            </StackPanel>
+
+
+            <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth1" Padding="5">
+                <StackPanel Orientation="Vertical">
+                   
+                    <Separator Width="auto" Margin="2"/>
+                    <DataGrid  x:Name="datagrid" Height="270" Width="780" ColumnWidth="200" HorizontalScrollBarVisibility="Disabled" FontSize="18" FontWeight="SemiBold"  >
+                       
+
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="FontWeight" Value="Bold"/>
+                            </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                       
+                    </DataGrid>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,25,0">
+                        <CheckBox x:Name="checkbox_gst" Unchecked="checkbox_gst_Unchecked" Content="With GST" Margin="0,0,30,0" FontWeight="Bold" IsChecked="True" Checked="checkbox_gst_Checked"/>
+                        <TextBlock Text="CGST" FontSize="17" FontWeight="Light" Margin="0,0,15,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="cgst_percentage_txt" Text="9" FontSize="15"  FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="%" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="₹" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Margin="15,0,0,0"/>
+                        <TextBlock x:Name="cgst_amount" Text="0.0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" Margin="2,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,25,0">
+                        <TextBlock Text="SGST" FontSize="17" FontWeight="Light" Margin="0,0,15,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="sgst_percentage_txt" Text="9" FontSize="15"  FontWeight="SemiBold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="%" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <TextBlock Text="₹" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Margin="15,0,0,0"/>
+                        <TextBlock x:Name="sgst_amount" Text="0.0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" Margin="2,0,0,0"/>
+                    </StackPanel>
+                    <Separator Width="180" HorizontalAlignment="Right" Margin="5"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Grand Total" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="17" FontWeight="Light" Margin="0,0,10,0"/>
+                        <materialDesign:Chip  Width="180" Background="Purple" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                                <TextBlock Text="₹" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+                                <TextBlock x:Name="total_amount" Text="0.0" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Margin="2,0,0,0"/>
+
+                            </StackPanel>
+                        </materialDesign:Chip>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5">
+                        <Button x:Name="billing_btn" Height="35" Margin="5" FontSize="15" Content="Print Bill" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="250" materialDesign:ShadowAssist.ShadowEdges="All"/>
+                    <Button x:Name="clear_btn" Height="35" Margin="5"  FontSize="15" Content="Clear/New Bill" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="250" materialDesign:ShadowAssist.ShadowEdges="All" Click="clear_btn_Click"/>
+                    
+                </StackPanel>
+                </StackPanel>
+            </materialDesign:Card>
+        </StackPanel>
+    </Grid>
+</Page>

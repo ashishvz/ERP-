@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Demo1
+{
+    /// <summary>
+    /// Interaction logic for Product_listBox.xaml
+    /// </summary>
+    public partial class Product_listBox : UserControl
+    {
+      
+        public Product_listBox()
+        {
+            InitializeComponent();
+            
+        }
+
+        public int itemNo_txt { get; set; }
+        public string productName_txt { get; set; }
+
+        public int qty_txt { get; set; }
+        public double amount_txt { get; set; }
+    }
+}
